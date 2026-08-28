@@ -1,0 +1,17 @@
+export const initialJobs = [
+  { id: 1, title: "Software Engineer", company: "Tech Corp", location: "Jakarta", salary: 10000000, status: true },
+  { id: 2, title: "Product Manager", company: "Innovate Inc", location: "Bandung", salary: 15000000, status: true },
+  { id: 3, title: "UI/UX Designer", company: "Design Studio", location: "Surabaya", salary: 8000000, status: false },
+  { id: 4, title: "Data Analyst", company: "Data Insights", location: "Jakarta", salary: 9000000, status: true },
+  { id: 5, title: "Marketing Specialist", company: "Market Pro", location: "Semarang", salary: 6000000, status: false },
+  { id: 6, title: "DevOps Engineer", company: "Cloud Core", location: "Jakarta", salary: 14000000, status: true },
+  { id: 7, title: "Frontend Developer", company: "Web Craft", location: "Bandung", salary: 11000000, status: true },
+  { id: 8, title: "Backend Developer", company: "Server Logic", location: "Surabaya", salary: 12500000, status: false },
+  { id: 9, title: "QA Engineer", company: "Quality First", location: "Jakarta", salary: 7500000, status: true },
+  { id: 10, title: "HR Specialist", company: "People Matters", location: "Yogyakarta", salary: 6500000, status: true },
+  { id: 11, title: "Content Writer", company: "Media Hub", location: "Bandung", salary: 5500000, status: false },
+  { id: 12, title: "Finance Manager", company: "Money Dynamics", location: "Jakarta", salary: 16000000, status: true },
+  { id: 13, title: "Cyber Security Analyst", company: "Safe Tech", location: "Surabaya", salary: 13000000, status: true },
+  { id: 14, title: "Mobile App Developer", company: "Appify", location: "Yogyakarta", salary: 10500000, status: false },
+  { id: 15, title: "SEO Specialist", company: "Rank Top", location: "Semarang", salary: 7000000, status: true },
+];

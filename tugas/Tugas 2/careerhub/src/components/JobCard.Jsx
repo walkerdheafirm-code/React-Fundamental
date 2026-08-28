@@ -1,140 +1,30 @@
-function JobCard({ title, company, location, salary, type, level, accentColor, tags }) {
+function JobCard({ job, onEdit }) {
   return (
-    <div style={styles.card}>
-      {/* Header Kartu */}
-      <div style={styles.cardHeader}>
-        <span style={{ ...styles.typeBadge, backgroundColor: `${accentColor}15`, color: accentColor }}>
-          {type}
-        </span>
-        <span style={styles.levelBadge}>{level}</span>
-      </div>
-
-      {/* Judul & Perusahaan */}
-      <h3 style={{ ...styles.jobTitle, color: '#0f172a' }}>{title}</h3>
-      <p style={styles.companyName}>{company}</p>
-
-      {/* Info Detail */}
-      <div style={styles.infoList}>
-        <div style={styles.infoItem}>
-          <span style={styles.icon}>📍</span>
-          <span>{location}</span>
+    <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between">
+      <div>
+        <div className="flex justify-between items-start mb-2 gap-2">
+          <h3 className="text-lg font-bold text-blue-600 leading-snug">{job.title}</h3>
+          <span className={`text-xs font-semibold px-2.5 py-1 rounded-md ${job.status ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+            {job.status ? 'Open' : 'Closed'}
+          </span>
         </div>
-        <div style={styles.infoItem}>
-          <span style={styles.icon}>💰</span>
-          <span style={styles.salaryText}>{salary} / bulan</span>
+        
+        <p className="text-sm font-semibold text-slate-700 mb-3">{job.company}</p>
+
+        <div className="text-sm text-slate-500 space-y-1 mb-4">
+          <p>📍 {job.location}</p>
+          <p>💰 Rp {job.salary.toLocaleString('id-ID')}</p>
         </div>
       </div>
 
-      {/* Skill Tags */}
-      {tags && (
-        <div style={styles.tagContainer}>
-          {tags.map((tag, idx) => (
-            <span key={idx} style={styles.tag}>
-              {tag}
-            </span>
-          ))}
-        </div>
-      )}
-
-      {/* Tombol Aksi */}
-      <button style={{ ...styles.button, backgroundColor: accentColor }}>
-        Lihat Detail
+      <button
+        onClick={() => onEdit(job)}
+        className="w-full bg-amber-500 hover:bg-amber-600 text-white font-medium py-2 rounded-lg transition-colors text-sm cursor-pointer"
+      >
+        ✏️ Edit Lowongan
       </button>
     </div>
   );
 }
-
-const styles = {
-  card: {
-    backgroundColor: '#ffffff',
-    borderRadius: '16px',
-    padding: '24px',
-    boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
-    border: '1px solid #e2e8f0',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-  },
-  cardHeader: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: '14px',
-  },
-  typeBadge: {
-    fontSize: '12px',
-    fontWeight: '700',
-    padding: '4px 10px',
-    borderRadius: '8px',
-  },
-  levelBadge: {
-    fontSize: '12px',
-    color: '#64748b',
-    backgroundColor: '#f1f5f9',
-    padding: '4px 8px',
-    borderRadius: '6px',
-    fontWeight: '500',
-  },
-  jobTitle: {
-    fontSize: '18px',
-    fontWeight: '700',
-    margin: '0 0 4px 0',
-  },
-  companyName: {
-    fontSize: '14px',
-    color: '#64748b',
-    margin: '0 0 16px 0',
-    fontWeight: '500',
-  },
-  infoList: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '8px',
-    marginBottom: '16px',
-    backgroundColor: '#f8fafc',
-    padding: '12px',
-    borderRadius: '10px',
-  },
-  infoItem: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    fontSize: '13px',
-    color: '#334155',
-  },
-  salaryText: {
-    fontWeight: '700',
-    color: '#0f172a',
-  },
-  icon: {
-    fontSize: '14px',
-  },
-  tagContainer: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    gap: '6px',
-    marginBottom: '20px',
-  },
-  tag: {
-    fontSize: '11px',
-    backgroundColor: '#f1f5f9',
-    color: '#475569',
-    padding: '3px 8px',
-    borderRadius: '6px',
-    fontWeight: '500',
-  },
-  button: {
-    color: '#ffffff',
-    border: 'none',
-    borderRadius: '10px',
-    padding: '12px 0',
-    width: '100%',
-    fontWeight: '700',
-    cursor: 'pointer',
-    fontSize: '14px',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-  },
-};
 
 export default JobCard;
